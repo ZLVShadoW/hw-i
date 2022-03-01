@@ -1,0 +1,78 @@
+.message {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    max-width: 500px;
+    margin-bottom: 10px;
+}
+.message__ava {
+    width: 18%;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 1px 1px 3px #bbb;
+}
+.message__ava_wrap {
+    position: relative;
+    width: 100%;
+    padding-bottom: 100%;
+}
+.message__ava .message__ava_wrap img {
+    width: 100%;
+    position: absolute;
+    transform: translatey(-5%);
+}
+.message__text {
+    width: 80%;
+    padding: 16px 60px 16px 16px;
+    position: relative;
+    background: #082103;
+    border-radius: 10px 10px 10px 0;
+}
+.message__text::before {
+    content: "";
+    width: 30px;
+    height: 27px;
+    position: absolute;
+    bottom: 0;
+    left: -30px;
+    background: radial-gradient(circle at 0px 0px, transparent, transparent 30px, #082103 30.7px);
+}
+.message_right {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    align-items: end;
+    max-width: 500px;
+    margin-bottom: 10px;
+    align-self: end;
+}
+.message__text_right {
+    width: 80%;
+    padding: 16px 60px 16px 16px;
+    position: relative;
+    background: #082103;
+    border-radius: 10px 10px 0 10px;
+}
+.message__text_right::before {
+    content: "";
+    width: 30px;
+    height: 27px;
+    position: absolute;
+    bottom: 0;
+    right: -30px;
+    background: radial-gradient(circle at 0px 0px, transparent, transparent 30px, #082103 30.7px);
+    transform: scaleX(-1);
+}
+.message__name {
+    font-weight: bold;
+    color: #a096bd;
+}
+.message__message {
+    color: #bfccbc;
+}
+.message__time {
+    position: absolute;
+    right: 10px;
+    bottom: 5px;
+    color: #374f34;
+}

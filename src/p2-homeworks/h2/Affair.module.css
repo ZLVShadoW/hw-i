@@ -1,0 +1,18 @@
+.task {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 5px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+}
+
+.del {
+    font-weight: bold;
+    font-size: 12px;
+    color: darkred;
+    border: 0;
+    cursor: pointer;
+    padding: 5px 15px;
+    border-radius: 3px;
+}
