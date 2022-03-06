@@ -1,5 +1,9 @@
 .blue {
-    border-bottom: 5px solid blue;
+    border-bottom: 5px solid olive;
+    color: olive;
+}
+.blue:focus {
+    border-color: olive;
 }
 
 .column {
@@ -7,7 +11,21 @@
     flex-direction: column;
     align-items: center;
 }
+.column > * {
+   margin-bottom: 7px;
+}
 
 .testSpanError {
-    color: blue;
+    color: firebrick;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.blueBut {
+    background: #2e559a;
+    color: #f1f1f1;
+}
+.blueBut:hover {
+    background: #143a7e;
+    color: #f1f1f1;
 }

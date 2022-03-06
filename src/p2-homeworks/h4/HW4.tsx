@@ -21,9 +21,8 @@ function HW4() {
     const testOnChange = (e: ChangeEvent<HTMLInputElement>) => setChecked(e.currentTarget.checked)
 
     return (
-        <div>
-            <hr/>
-            homeworks 4
+        <div className={'wrapper-block'}>
+            <h3>homeworks 4</h3>
 
             <div className={s.column}>
                 <SuperInputText
@@ -36,12 +35,17 @@ function HW4() {
 
                 <SuperInputText
                     className={s.blue} // проверьте, рабоет ли смешивание классов
+                    // error={error}
                 />
 
                 {/*----------------------------------------------------*/}
 
                 <SuperButton>
                     default
+                </SuperButton>
+
+                <SuperButton className={s.blueBut}>
+                    className
                 </SuperButton>
 
                 <SuperButton
@@ -67,13 +71,6 @@ function HW4() {
                 {/*// onChange тоже должен работать*/}
                 <SuperCheckbox checked={checked} onChange={testOnChange}/>
             </div>
-
-            <hr/>
-            {/*для личного творчества, могу проверить*/}
-            {/*<AlternativeSuperInputText/>*/}
-            {/*<AlternativeSuperButton/>*/}
-            {/*<AlternativeSuperCheckbox/>*/}
-            <hr/>
         </div>
     )
 }

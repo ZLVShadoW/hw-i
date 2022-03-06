@@ -1,0 +1,50 @@
+.nav {
+    display: flex;
+    align-self: flex-start;
+    margin-top: 15px;
+    padding: 10px;
+    background: darkred;
+    border-radius: 4px;
+    position: relative;
+}
+
+.nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.nav ul > li:not(:last-child) {
+    margin-right: 10px;
+}
+
+.nav ul li a {
+    font-size: 18px;
+    line-height: 1;
+    color: #f1f1f1;
+    text-decoration: none;
+    padding: 0 5px;
+    display: block;
+}
+
+.nav ul li a:hover {
+    text-decoration: underline;
+}
+
+.nav button {
+    border: 0;
+    outline: 0;
+    background: none;
+    color: #f1f1f1;
+    cursor: pointer;
+}
+
+.nav span {
+    position: absolute;
+    top: -10px;
+    right: -15px;
+    font-weight: bold;
+    color: darkred;
+    cursor: pointer;
+}
