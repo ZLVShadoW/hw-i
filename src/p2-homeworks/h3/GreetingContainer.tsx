@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import Greeting from './Greeting'
-import {UserType} from "./HW3";
+import {UserType} from './HW3';
 
 type GreetingContainerPropsType = {
     users: Array<UserType> // need to fix any
@@ -12,19 +12,18 @@ type GreetingContainerPropsType = {
 
 // более современный и удобный для про :)
 // уровень локальной логики
-const GreetingContainer: React.FC<GreetingContainerPropsType> = ({users, addUserCallback}) => { // деструктуризация пропсов
-    const [name, setName] = useState<string>('') // need to fix any
-    const [error, setError] = useState<string>('') // need to fix any
+const GreetingContainer: React.FC<GreetingContainerPropsType> = ({users, addUserCallback}) => {
+    const [name, setName] = useState<string>('')
+    const [error, setError] = useState<string>('')
 
-
-    const setNameCallback = (e: React.ChangeEvent<HTMLInputElement>) => { // need to fix any
+    const setNameCallback = (e: React.ChangeEvent<HTMLInputElement>) => {
         let {value} = e.currentTarget
         value = value.trim()
 
         setName(value)
         setError('')
 
-        if(!value) {
+        if (!value) {
             setError('Enter name')
         }
     }
@@ -37,14 +36,14 @@ const GreetingContainer: React.FC<GreetingContainerPropsType> = ({users, addUser
         setError('')
         addUserCallback(name)
         setName('')
-        alert(`Hello ${name}!`) // need to fix
+        alert(`Hello ${name}!`)
     }
 
     const onKeyEnter = (e: React.KeyboardEvent<HTMLInputElement>) => {
         if (e.key === 'Enter') addUser()
     }
 
-    const totalUsers = users.length // need to fix
+    const totalUsers = users.length
 
     return (
         <Greeting

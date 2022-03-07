@@ -26,7 +26,7 @@ type AffairsPropsType = {
 
 function Affairs(props: AffairsPropsType) {
 
-    const emptyFilter = props.filter === "all" ? '' : props.filter
+    const emptyFilter = props.filter === 'all' ? '' : props.filter
 
     const mappedAffairs = props.data.length > 0
         ? props.data.map((a: AffairType) => (
@@ -38,6 +38,7 @@ function Affairs(props: AffairsPropsType) {
             />
         ))
         : <div>No {emptyFilter} affairs</div>
+
 
     // const setAll = () => {
     //     props.setFilter('all')
@@ -51,6 +52,7 @@ function Affairs(props: AffairsPropsType) {
     // const setLow = () => {
     //     props.setFilter("low")
     // }
+
 
     const changeFilterHandle = (filterText: FilterType) => {
         props.setFilter(filterText)
@@ -74,6 +76,7 @@ function Affairs(props: AffairsPropsType) {
             {mappedAffairs}
             <div className={cl.buttonsGroup}>
                 {filterButtons}
+
 
                 {/*<button className={cl.btn} onClick={setAll}>All</button>*/}
                 {/*<button className={cl.btn} onClick={setHigh}>High</button>*/}

@@ -21,7 +21,6 @@ const defaultAffairs: Array<AffairType> = [
 
 const func1 = (el: AffairType, filterText: FilterType) => el.priority === filterText
 const func2 = (filterNew: FilterType) => (el: AffairType) => el.priority === filterNew
-
 function func3(filterText: FilterType, el: AffairType) {
     return el.priority === filterText
 }
@@ -34,8 +33,6 @@ export const filterAffairs = (affairs: Array<AffairType>, filter: FilterType): A
     if (filter === 'high') return affairs.filter((el) => func1(el, filter))
     if (filter === 'low') return affairs.filter(func2(filter))
     if (filter === 'middle') return affairs.filter(func3.bind(null, filter))
-
-    // else if (filter === 'middle') return affairs.filter(el => el.priority === filter)
     return affairs
 }
 export const deleteAffair = (affairs: Array<AffairType>, _id: number): Array<AffairType> => {
