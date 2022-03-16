@@ -26,28 +26,58 @@
     text-decoration: none;
     padding: 0 5px;
     display: block;
+
+    position: relative;
+    z-index: 2;
 }
 
 .nav ul li a:hover {
     text-decoration: underline;
 }
 
+.nav ul li a:before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    bottom: 5px;
+    left: 5px;
+    background: #fff;
+    box-shadow: 0 0 5px 5px #fff;
+    opacity: 0;
+    z-index: 1;
+}
+
 .nav button {
+    display: flex;
     border: 0;
     outline: 0;
     background: none;
-    padding: 2px 5px;
+    padding: 0;
     color: #f1f1f1;
     line-height: 1;
     font-size: 14px;
     cursor: pointer;
 }
 
-.nav span {
+.nav button span.btnMenu {
+    padding: 12px;
+    margin: -10px;
+}
+
+.nav span.closeMenu {
     position: absolute;
     top: -10px;
     right: -15px;
     font-weight: bold;
     color: darkred;
     cursor: pointer;
+}
+
+.nav ul li a.active {
+    text-decoration: underline;
+}
+
+.nav ul li a.active:before {
+    opacity: .39;
 }
