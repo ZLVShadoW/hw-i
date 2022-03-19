@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import SuperEditableSpan from './common/c4-SuperEditableSpan/SuperEditableSpan'
 import SuperButton from '../h4/common/c2-SuperButton/SuperButton'
 import {restoreState, saveState} from './localStorage/localStorage'
+import {SectionWrapper} from '../../p1-main/m1-ui/SectionWrapper/SectionWrapper';
 
 function HW6() {
     const [value, setValue] = useState<string>('')
@@ -14,7 +15,7 @@ function HW6() {
     }
 
     return (
-        <div className={'wrapper-block'}>
+        <SectionWrapper>
             <h3>homeworks 6</h3>
 
             {/*should work (должно работать)*/}
@@ -34,7 +35,7 @@ function HW6() {
             {/*для личного творчества, могу проверить*/}
             {/*<AlternativeSuperEditableSpan/>*/}
             <hr/>
-        </div>
+        </SectionWrapper>
     )
 }
 
