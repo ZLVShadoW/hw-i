@@ -1,3 +1,53 @@
 .range {
+    position: relative;
+}
+.progressOverlay {
+width: calc(100% - 15px);
+    overflow: hidden;
+    border-radius: 10px 0 0 10px;
+    margin-left: 1px;
+    z-index: 3;
+}
+.progress {
+    height: 12px;
+    /*border-radius: 10px;*/
+    box-shadow: 3px 0 0 0 olive;
+    position: relative;
+    left: 0;
+    right: 1px;
+    z-index: 1;
+}
 
+input[type=range] {
+    -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+    width: 100%; /* Specific width is required for Firefox. */
+    /*background: transparent; !* Otherwise white in Chrome *!*/
+    background: #eee;
+    border: 1px solid red;
+    outline: none;
+    border-radius: 15px;
+    margin: 0;
+    height: 14px;
+    position: absolute;
+    top: -1px;
+}
+input[type=range]::-webkit-slider-runnable-track {
+    height: 16px;
+    -webkit-appearance: none;
+    color: firebrick;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: 1px solid firebrick;
+    height: 18px;
+    width: 18px;
+    border-radius: 50%;
+    cursor: pointer;
+    background: #fff;
+    box-shadow: 1px 1px 3px firebrick, inset 0 0 3px firebrick;
+    /*box-shadow: -1000px 0 0 1000px red;*/
+    z-index: 5;
+    position: relative;
+    top: -1.5px;
 }
