@@ -3,6 +3,8 @@ import SuperRange from './common/c7-SuperRange/SuperRange'
 import SuperDoubleRange from './common/c8-SuperDoubleRange/SuperDoubleRange'
 import {SectionWrapper} from '../../p1-main/m1-ui/SectionWrapper/SectionWrapper';
 
+//TODO https://codesandbox.io/s/multi-range-slider-react-js-ecwcr?from-embed=&file=/src/App.js
+
 function HW11() {
     const [value1, setValue1] = useState(0)
     const [value2, setValue2] = useState(1)
@@ -20,6 +22,7 @@ function HW11() {
 
     return (
         <SectionWrapper>
+            <div style={{width:'30%'}}>
             <h3>homeworks 11</h3>
 
             {/*should work (должно работать)*/}
@@ -29,7 +32,7 @@ function HW11() {
                     // сделать так чтоб value1 изменялось
                     value={value1}
                     min={0}
-                    max={50}
+                    max={100}
                     onChangeRange={onChangeInputRangeHandle}
                 />
             </div>
@@ -41,7 +44,7 @@ function HW11() {
                 <SuperDoubleRange
                     value={[value1,value2]}
                     min={0}
-                    max={50}
+                    max={100}
                     onChangeRange={onChangeDoubleInputRangeHandle}
                     setValue1={setValue1}
                     setValue2={setValue2}
@@ -49,7 +52,7 @@ function HW11() {
                 />
                 <span>{value2}</span>
             </div>
-
+            </div>
         </SectionWrapper>
     )
 }

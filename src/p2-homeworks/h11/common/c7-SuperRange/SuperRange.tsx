@@ -10,6 +10,7 @@ type SuperRangePropsType = DefaultInputPropsType & { // и + ещё пропсы
     onChangeRange?: (value: number) => void
     value?: number
     max: number
+    min: number
     bcolor?: string
     bsc?: string
     st?: React.CSSProperties | undefined
@@ -21,7 +22,8 @@ const SuperRange: React.FC<SuperRangePropsType> = (
         type, // достаём и игнорируем чтоб нельзя было задать другой тип инпута
         onChange, onChangeRange,
         className,
-        value, max, bcolor, bsc, st, po,
+        value, max, min,
+        bcolor, bsc, st, po,
 
         ...restProps// все остальные пропсы попадут в объект restProps
     }
@@ -38,14 +40,20 @@ const SuperRange: React.FC<SuperRangePropsType> = (
     let forbColor = bcolor ? bcolor : 'olive'
     let forbsc = bcolor ? bcolor : 'olive'
 
+    // let forVC = w
+    let forVC = (value! * 26)/100
+
     return (
         <div className={s.range} style={st ? st : undefined}>
+            {/*<span className={s.valueCoords} style={{left: `calc(${forVC}% - 25px)`}}>{value}</span>*/}
+            <span className={s.valueCoords} style={{left: `calc(${w}% - ${forVC}px)`}}>{value}</span>
             <div className={s.progressOverlay} style={po}>
                 <div className={s.progress} style={{
                     background: `${forbColor}`, width: `${w}%`, boxShadow: `3px 0 0 0 ${forbsc}`
                 }}/>
             </div>
             <input
+                step={1}
                 max={max}
                 value={value}
                 type={'range'}
