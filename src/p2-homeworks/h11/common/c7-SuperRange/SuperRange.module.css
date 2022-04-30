@@ -1,16 +1,17 @@
 .range {
     position: relative;
 }
+
 .progressOverlay {
-width: calc(100% - 15px);
+    width: calc(100% - 15px);
     overflow: hidden;
     border-radius: 10px 0 0 10px;
     margin-left: 1px;
     z-index: 3;
 }
+
 .progress {
     height: 12px;
-    /*border-radius: 10px;*/
     box-shadow: 3px 0 0 0 olive;
     position: relative;
     left: 0;
@@ -31,6 +32,7 @@ input[type=range] {
     position: absolute;
     top: -1px;
 }
+
 input[type=range]::-webkit-slider-runnable-track {
     height: 16px;
     -webkit-appearance: none;

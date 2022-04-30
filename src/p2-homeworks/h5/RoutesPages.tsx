@@ -14,7 +14,6 @@ export const PATH = {
 function RoutesPages() {
     return (
         <div>
-            {/*Switch выбирает первый подходящий роут*/}
             <Routes>
 
                 <Route path={'/'} element={<Navigate to={PATH.PRE_JUNIOR} />} />

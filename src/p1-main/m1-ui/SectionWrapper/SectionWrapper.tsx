@@ -1,9 +1,20 @@
 import React from 'react';
 import cn from './SectionWrapper.module.css'
 
-export const SectionWrapper:React.FC = ({children}) => {
+type SectionWrapperPropsType = {
+    forClass?: string
+}
+
+export const SectionWrapper: React.FC<SectionWrapperPropsType> = (
+    {
+        children,
+        forClass
+    }) => {
+
+    const finalClassName = forClass ? `${cn.wrapperBlock} ${forClass}` : cn.wrapperBlock
+
     return (
-        <div className={cn.wrapperBlock}>
+        <div className={finalClassName}>
             {children}
         </div>
     );

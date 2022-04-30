@@ -8,12 +8,11 @@ type DefaultInputPropsType = DetailedHTMLProps<InputHTMLAttributes<HTMLInputElem
 // (чтоб не писать value: string, onChange: ...; они уже все описаны в DefaultInputPropsType)
 type SuperRangePropsType = DefaultInputPropsType & { // и + ещё пропсы которых нет в стандартном инпуте
     onChangeRange?: (value: number) => void
-    value?: number
+    value: number
     max: number
     min: number
-    bcolor?: string
-    bsc?: string
-    st?: React.CSSProperties | undefined
+    bgColor?: string
+    st?: React.CSSProperties
     po?: React.CSSProperties
 };
 
@@ -23,8 +22,7 @@ const SuperRange: React.FC<SuperRangePropsType> = (
         onChange, onChangeRange,
         className,
         value, max, min,
-        bcolor, bsc, st, po,
-
+        bgColor, st, po,
         ...restProps// все остальные пропсы попадут в объект restProps
     }
 ) => {
@@ -36,20 +34,21 @@ const SuperRange: React.FC<SuperRangePropsType> = (
 
     const finalRangeClassName = `${s.range} ${className ? className : ''}`
 
-    let w = value! * 100 / max
-    let forbColor = bcolor ? bcolor : 'olive'
-    let forbsc = bcolor ? bcolor : 'olive'
+    let pointPosition = value * 100 / max
+    //--- заливка progress до ползунка
+    let progressBGColor = bgColor ? bgColor : 'olive'
+    //--- заливка progress до ползунка: дозаливка
+    let restProgressBGColor = bgColor ? bgColor : 'olive'
 
-    // let forVC = w
-    let forVC = (value! * 26)/100
+    let selfPointPosition = (value * 26)/100
+    //TODO необязательный параметр в ф-ции: проверку на наличие надо делать; в jsx -е: нет?
 
     return (
         <div className={s.range} style={st ? st : undefined}>
-            {/*<span className={s.valueCoords} style={{left: `calc(${forVC}% - 25px)`}}>{value}</span>*/}
-            <span className={s.valueCoords} style={{left: `calc(${w}% - ${forVC}px)`}}>{value}</span>
+            <span className={s.valueCoords} style={{left: `calc(${pointPosition}% - ${selfPointPosition}px)`}}>{value}</span>
             <div className={s.progressOverlay} style={po}>
                 <div className={s.progress} style={{
-                    background: `${forbColor}`, width: `${w}%`, boxShadow: `3px 0 0 0 ${forbsc}`
+                    background: `${progressBGColor}`, width: `${pointPosition}%`, boxShadow: `3px 0 0 0 ${restProgressBGColor}`
                 }}/>
             </div>
             <input
