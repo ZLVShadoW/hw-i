@@ -31,19 +31,19 @@ const SuperDoubleRange: React.FC<SuperDoubleRangePropsType> = (
         props.setValue2(n)
     }
 
-    // --- без типизации переменной атрибут st идёт в ругань :)))
-    const st: React.CSSProperties = {
-        position: 'absolute',
-        width: '100%'
-    }
+    // --- без типизации переменной атрибут st идёт в ругань :))) при работе с объектом для атрибута style
+    // const st: React.CSSProperties = {
+    //     position: 'absolute',
+    //     width: '100%'
+    // }
 
     return (
         <div className={s.double}>
             <SuperRange value={value[0]} min={min} max={max}
                         bgColor={'#eee'}
                         onChangeRange={func1}
-                        st={st}
-                        po={{position: 'relative'}}
+                        styleClassNameRange={s.rangePosition}
+                        styleProgressOverlay={{position: 'relative'}}
             />
 
             {/*<SuperRange value={value && value[1]} min={min} max={max} - если опционально*/}

@@ -32,8 +32,6 @@ function Clock() {
     const stringTime = date &&`${addZero(date!.getHours())} : ${addZero(date!.getMinutes())} : ${addZero(date!.getSeconds())}`
     const stringDate = date &&`${addZero(date!.getDate())} : ${addZero(date!.getMonth() + 1)} : ${date!.getFullYear()}`
 
-    console.log(timerId)
-
     return (
         <div>
             <div

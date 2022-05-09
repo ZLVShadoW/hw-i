@@ -12,8 +12,8 @@ type SuperRangePropsType = DefaultInputPropsType & { // и + ещё пропсы
     max: number
     min: number
     bgColor?: string
-    st?: React.CSSProperties
-    po?: React.CSSProperties
+    styleClassNameRange?: React.CSSProperties | string // React.CSSProperties для объекта (st)
+    styleProgressOverlay?: React.CSSProperties         // по аналогии с st
 };
 
 const SuperRange: React.FC<SuperRangePropsType> = (
@@ -22,7 +22,7 @@ const SuperRange: React.FC<SuperRangePropsType> = (
         onChange, onChangeRange,
         className,
         value, max, min,
-        bgColor, st, po,
+        bgColor, styleClassNameRange, styleProgressOverlay,
         ...restProps// все остальные пропсы попадут в объект restProps
     }
 ) => {
@@ -34,21 +34,26 @@ const SuperRange: React.FC<SuperRangePropsType> = (
 
     const finalRangeClassName = `${s.range} ${className ? className : ''}`
 
-    let pointPosition = value * 100 / max
+    const pointPosition = value * 100 / max
     //--- заливка progress до ползунка
-    let progressBGColor = bgColor ? bgColor : 'olive'
+    const progressBGColor = bgColor ? bgColor : 'olive'
     //--- заливка progress до ползунка: дозаливка
-    let restProgressBGColor = bgColor ? bgColor : 'olive'
+    const restProgressBGColor = bgColor ? bgColor : 'olive'
 
-    let selfPointPosition = (value * 26)/100
-    //TODO необязательный параметр в ф-ции: проверку на наличие надо делать; в jsx -е: нет?
+    const selfPointPosition = (value * 26) / 100
+
+    const finalRange = styleClassNameRange ? `${s.range} ${styleClassNameRange}` : s.range
 
     return (
-        <div className={s.range} style={st ? st : undefined}>
-            <span className={s.valueCoords} style={{left: `calc(${pointPosition}% - ${selfPointPosition}px)`}}>{value}</span>
-            <div className={s.progressOverlay} style={po}>
+        // <div className={s.range} style={st ? st : undefined}>
+        <div className={finalRange}>
+            <span className={s.valueCoords}
+                  style={{left: `calc(${pointPosition}% - ${selfPointPosition}px)`}}>{value}</span>
+            <div className={s.progressOverlay} style={styleProgressOverlay}>
                 <div className={s.progress} style={{
-                    background: `${progressBGColor}`, width: `${pointPosition}%`, boxShadow: `3px 0 0 0 ${restProgressBGColor}`
+                    background: `${progressBGColor}`,
+                    width: `${pointPosition}%`,
+                    boxShadow: `3px 0 0 0 ${restProgressBGColor}`
                 }}/>
             </div>
             <input
@@ -58,7 +63,6 @@ const SuperRange: React.FC<SuperRangePropsType> = (
                 type={'range'}
                 onChange={onChangeCallback}
                 className={finalRangeClassName}
-
                 {...restProps} // отдаём инпуту остальные пропсы если они есть (value например там внутри)
             />
         </div>

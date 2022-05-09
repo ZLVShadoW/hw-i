@@ -10,3 +10,7 @@
     z-index: 1;
 }
 
+.rangePosition {
+    position: absolute;
+    width: 100%;
+}

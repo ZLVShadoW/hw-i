@@ -19,9 +19,8 @@ const initialPeople: Array<UserType> = [
 ]
 
 function HW8() {
-    const [people, setPeople] = useState<Array<UserType>>(initialPeople) // need to fix any
+    const [people, setPeople] = useState<Array<UserType>>(initialPeople)
 
-    // need to fix any
     const finalPeople: Array<React.ReactNode> = people.map((p) => (
         <div key={p._id} style={{width: 185, display: 'flex', justifyContent: 'space-between', marginBottom: 10}}>
             <span>{p.name}</span> <span><b>{p.age}</b></span>

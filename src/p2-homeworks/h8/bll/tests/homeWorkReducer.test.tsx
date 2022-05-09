@@ -2,7 +2,7 @@
 import {homeWorkReducer} from '../homeWorkReducer'
 import {UserType} from '../../HW8';
 
-let initialState: Array<UserType> // need to fix any
+let initialState: Array<UserType>
 
 beforeEach(() => {
     initialState = [
@@ -18,7 +18,6 @@ beforeEach(() => {
 test('sort name up', () => {
     const newState: Array<UserType> = homeWorkReducer(initialState, {type: 'sort', payload: 'up'})
 
-    console.log(newState)
     expect(newState[0].name).toBe('Александр')
     expect(newState[5].name).toBe('Кот')
 })

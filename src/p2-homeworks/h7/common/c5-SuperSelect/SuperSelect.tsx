@@ -15,7 +15,7 @@ const SuperSelect: React.FC<SuperSelectPropsType> = (
     }
 ) => {
     // const mappedOptions: any[] = []; // map options with key
-
+    //TODO если параметр опциональный, то проверка на наличие или обиграть как в SuperRadio
     const mappedOptions = options?.map((el, idx) => <option value={el} key={`${el}-${idx}`}>{el}</option>)
 
     const onChangeCallback = (e: ChangeEvent<HTMLSelectElement>) => {

@@ -24,24 +24,21 @@ function HW11() {
         <SectionWrapper>
             <div style={{width: '95%'}}>
                 <h3>homeworks 11</h3>
-
-                {/*should work (должно работать)*/}
+                <br/>
                 <div>
-                    <span>{value1}</span>
                     <SuperRange
-                        // сделать так чтоб value1 изменялось
                         value={value1}
                         min={0}
                         max={100}
                         bgColor={'#0a6d98'}
                         onChangeRange={onChangeInputRangeHandle}
                     />
+                    <span>{value1}</span>
                 </div>
                 <br/>
                 <br/>
                 <br/>
                 <div>
-                    <span>{value1}</span>
                     <SuperDoubleRange
                         value={[value1, value2]}
                         min={0}
@@ -49,9 +46,11 @@ function HW11() {
                         onChangeRange={onChangeDoubleInputRangeHandle}
                         setValue1={setValue1}
                         setValue2={setValue2}
-                        // сделать так чтоб value1 и value2 изменялось
                     />
-                    <span>{value2}</span>
+                    <div style={{display: 'flex', justifyContent: 'space-between'}}>
+                        <span>{value1}</span>
+                        <span>{value2}</span>
+                    </div>
                 </div>
             </div>
         </SectionWrapper>

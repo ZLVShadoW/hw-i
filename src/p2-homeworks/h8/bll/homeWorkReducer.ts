@@ -15,10 +15,9 @@ export type CheckAge = {
 
 export type ActionsType = SortUpType | SortDownType | CheckAge
 
-export const homeWorkReducer = (state: Array<UserType>, action: ActionsType): Array<UserType> => { // need to fix any
+export const homeWorkReducer = (state: Array<UserType>, action: ActionsType): Array<UserType> => {
     switch (action.type) {
         case 'sort': {
-            // need to fix
             let copyState = [...state]
 
             if (action.payload === 'up') {
